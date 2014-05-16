@@ -5,12 +5,13 @@
 class Square
 {
 		std::string colour;
-		int x;
 		
 	public:
-		Square();
+	    Square(){y = 5;}
 		void printColour();
+		int x;
 		int y;
+		
 };
 void Square::printColour() 
 {
@@ -21,29 +22,31 @@ class Face
 {
 		std::string side;
 	public:
-		Face(std::string facing) {side = facing;}
 		Square squares[9];
 		void printSide();
 		void initColour(char colour);
 };
 void Face::printSide() 
 {
-	std::cout << side << std::endl;
+        for(int i=0; i < 9; i++)
+        {
+            std::cout << squares[i].y << std::endl;
+        };
 };
 void Face::initColour(char colour)
 {
         for(int i=0; i < sizeof(squares); i++)
         {
-            squares[i].y = i;
-        } ;
+            this->squares[i].y = i;
+        };
 };
 //#########################################################################
 class Cube
 {
 		std::string cube;
 	public:
-		Cube();
-
+		//Cube();
+        Face faces[6];
 		void printCube();
 };		
 void Cube::printCube()
@@ -51,17 +54,9 @@ void Cube::printCube()
 std::cout << cube << std::endl;
 };
 
-Cube::Cube()
-{	
-		Face faces[6] = {	Face("L"),
-				            Face("F"), 
-				            Face("R"), 
-        			    	Face("T"), 
-		        	    	Face("O"), 
-		        	    	Face("A")};
-		        	    	
-        	        	    
-};
+//Cube::Cube()
+//{        	        	    
+//};
 
 
 
